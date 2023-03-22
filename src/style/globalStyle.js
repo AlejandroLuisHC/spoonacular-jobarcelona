@@ -1,36 +1,39 @@
 import { createGlobalStyle } from "styled-components";
 import { color } from "./style_constants";
+
 // Global Style
 export const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'roboto', sans-serif;
+        font-family: 'Roboto', sans-serif;
     }
+
     body {
-        height: 100vh;
-        width: 100vw;
-        background-color: ${color.black};
+        height: 100%;
+        width: 100%;
+        background-color: ${color.white};
         overflow-x: hidden;
+
         &::-webkit-scrollbar {
-            cursor: pointer;
-            width: 4px;
-            height: 4px;
+        cursor: pointer;
+        width: 6px;
+        height: 6px;
         }
+
         &::-webkit-scrollbar-track {
-            border-radius: 10px;
-            background: ${color.whiteFade};
+        border-radius: 10px;
+        background: ${color.whiteFadeBg};
         }
-        &::-webkit-scrollbar-thumb{
-            border-radius: 10px;
-            background: ${color.blue};
+
+        &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: ${color.blue};
         }
-        &::-webkit-scrollbar-thumb:hover{F
-            background: ${color.blackFade};
-        }
-        &::-webkit-scrollbar-thumb:active{
-            background: #484848;
+
+        &::-webkit-scrollbar-thumb:hover {
+        background: ${color.blueDark};
         }
     }
-`
+`;
