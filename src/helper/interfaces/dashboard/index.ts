@@ -1,3 +1,3 @@
-export interface DashboardCardProps {
+export interface IDashboardCardProps {
     type: string
 }

@@ -5,6 +5,7 @@ import StoreProvider from '../helper/providers/StoreProvider'
 // Lazy import components
 const Layout = lazy(() => import('./Layout'))
 const Dashboard = lazy(() => import('../pages/Dashboard'))
+const RecipesDashboard = lazy(() => import('../pages/RecipesDashboard'))
 
 const Router = () => {
     return (
@@ -14,7 +15,7 @@ const Router = () => {
                     <Routes>
                         <Route path="/" element={<Layout />}>
                             <Route index element={<Dashboard />} />
-                            <Route path="/recipes/:type" element={<p>Recipes</p>} />
+                            <Route path="/recipes/:type" element={<RecipesDashboard />} />
                             <Route path="/recipe/:id" element={<p>Recipe</p>} />
                             <Route path="*" element={<p>Error 404: Page not found</p>} />
                         </Route>
