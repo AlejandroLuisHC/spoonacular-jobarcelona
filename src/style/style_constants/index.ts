@@ -1,4 +1,4 @@
-export const color = {
+export const color: Record<string, string> = {
     primary: '#FFA62B',
     secondary: '#F5F5F5',
     tertiary: '#F0F0F0',
@@ -16,7 +16,7 @@ export const color = {
     black: '#000',
     blackFade: '#00000088'
 }
-export const device = {
+export const device: Record<string, string> = {
     desktop: `(min-width: 768px)`,
     mobile: `(max-width: 768px)`,
 };
