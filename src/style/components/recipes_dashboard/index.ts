@@ -15,7 +15,13 @@ export const StyledRecipeCard = styled.div`
     border-radius: 10px;
     padding: 10px;
     max-width: 200px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
+    }
+    
     img {
         width: 100%;
         height: auto;

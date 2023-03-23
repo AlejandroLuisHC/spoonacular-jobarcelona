@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { generateRandomColor } from '../../helper/utils'
-import { IRecipeCardProps } from '../../helper/interfaces/recipes_dashboard'
 import { StyledRecipeCard } from '../../style/components/recipes_dashboard'
+import { IRecipeCardProps } from '../../helper/interfaces/recipes_dasboard'
 
 const RecipeCard: FC<IRecipeCardProps> = ({ recipe }) => {
     return (
