@@ -11,6 +11,7 @@ export const StyledRecipeCard = styled(Link)`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     margin: 20px;
     border: 2px solid ${(props) => props.color};
     border-radius: 10px;

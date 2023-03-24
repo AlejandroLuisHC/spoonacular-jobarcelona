@@ -5,6 +5,7 @@ import { RootState } from "../redux/store";
 import { useParams } from "react-router-dom";
 import { StyledRecipesDashboard } from "../style/components/recipes_dashboard";
 import RecipeCard from "../components/recipes_dashboard/RecipesCard";
+import Spinner from "../components/general_components/Spinner";
 
 const RecipesDashboard = () => {
     const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const RecipesDashboard = () => {
     return (
         <StyledRecipesDashboard>
             {
-            loading ? <p>Loading...</p> 
+            loading ? <Spinner /> 
                 : apiStatus === "failed" ?
                 <p>Failed to fetch recipes. Please try again later.</p>
                     : recipes.map((recipe) => (

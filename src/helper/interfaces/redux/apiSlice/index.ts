@@ -8,7 +8,7 @@ export interface IRecipe {
     summary: string;
     analyzedInstructions: { name: string; steps: { number: number; step: string }[] }[];
     extendedIngredients: { name: string; amount: number; unit: string }[];
-  }
+}
   
 export interface IApiState {
     status: "idle" | "loading" | "succeeded" | "failed";

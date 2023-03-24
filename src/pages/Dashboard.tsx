@@ -1,18 +1,37 @@
-import { FC } from 'react';
-import { StyledDashboard } from '../style/components/dashboard';
+import { FC, useState } from 'react';
 import DashboardCard from '../components/dashboard/DashboardCard';
+import { 
+    StyledDashboard, 
+    StyledSearchBar, 
+    StyledSearchButton, 
+    StyledSearchInput 
+} from '../style/components/dashboard';
 
 const Dashboard: FC = () => {
-    const recipeTypes = ['pasta', 'cereals', 'meat', 'salad', 'vegetarian', 'vegan', 'seafood', 'dessert'];
-    
+    const recipeTypes = ['breakfast', 'lunch', 'dinner', 'appetizers', 'snacks', 'desserts', 'vegetarian', 'vegan'];
+    const [searchContent, setSearchContent] = useState('');
+
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (searchContent.trim()) {
+            window.location.href = `./recipes/${searchContent.toLowerCase()}`;
+        }
+    };
+
     return (
-        <StyledDashboard>
-            {recipeTypes.map((type) => (
-                <DashboardCard key={type}
-                    type={type}
-                />
-            ))}
-        </StyledDashboard>
+        <>
+            <StyledSearchBar onSubmit={handleSearch}>
+                <StyledSearchInput type="text" value={searchContent} onChange={(e) => setSearchContent(e.target.value)} />
+                <StyledSearchButton type="submit">Search</StyledSearchButton>
+            </StyledSearchBar>
+            <StyledDashboard>
+                {recipeTypes.map((type) => (
+                    <DashboardCard key={type}
+                        type={type}
+                    />
+                ))}
+            </StyledDashboard>
+        </>
     );
 };
 
