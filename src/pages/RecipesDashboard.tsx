@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchRecipes, selectAllRecipes } from "../redux/features/api_data/apiSlice";
+import { fetchRecipes, selectAllRecipes, selectApiStatus } from "../redux/features/api_data/apiSlice";
 import { RootState } from "../redux/store";
 import { useParams } from "react-router-dom";
 import { StyledRecipesDashboard } from "../style/components/recipes_dashboard";
@@ -10,16 +10,25 @@ const RecipesDashboard = () => {
     const dispatch = useDispatch();
     const { type } = useParams<{ type: string }>();
     const recipes = useSelector((state: RootState) => selectAllRecipes(state));
+    const apiStatus = useSelector((state: RootState) => selectApiStatus(state));
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        dispatch(fetchRecipes(type));
+        setLoading(true);
+        dispatch(fetchRecipes(type))
+            .then(() => setLoading(false));
     }, [dispatch, type]);
 
     return (
         <StyledRecipesDashboard>
-            {recipes.map((recipe) => (
-                <RecipeCard key={recipe.id} recipe={recipe} />
-            ))}
+            {
+            loading ? <p>Loading...</p> 
+                : apiStatus === "failed" ?
+                <p>Failed to fetch recipes. Please try again later.</p>
+                    : recipes.map((recipe) => (
+                        <RecipeCard key={recipe.id} recipe={recipe} />
+                    ))
+            }
         </StyledRecipesDashboard>
     );
 };

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const StyledRecipesDashboard = styled.div`
     display: flex;
@@ -6,7 +7,7 @@ export const StyledRecipesDashboard = styled.div`
     justify-content: center;
 `;
 
-export const StyledRecipeCard = styled.div`
+export const StyledRecipeCard = styled(Link)`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,6 +16,8 @@ export const StyledRecipeCard = styled.div`
     border-radius: 10px;
     padding: 10px;
     max-width: 200px;
+    text-decoration: none;
+    color: black;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
     &:hover {
@@ -33,4 +36,4 @@ export const StyledRecipeCard = styled.div`
         margin-top: 10px;
         text-align: center;
     }
-`;
+`

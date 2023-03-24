@@ -5,9 +5,10 @@ import { IRecipeCardProps } from '../../helper/interfaces/recipes_dasboard'
 
 const RecipeCard: FC<IRecipeCardProps> = ({ recipe }) => {
     return (
-        <StyledRecipeCard key={recipe.id} color={generateRandomColor()}>
+        <StyledRecipeCard to={`./${recipe.id}`} key={recipe.id} color={generateRandomColor()}>
             <img src={recipe.image} alt={recipe.title} />
             <h2>{recipe.title}</h2>
+            <p>Ready in {recipe.readyInMinutes} minutes</p>
         </StyledRecipeCard>
     )
 }

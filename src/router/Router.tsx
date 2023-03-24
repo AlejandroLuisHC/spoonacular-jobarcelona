@@ -16,7 +16,7 @@ const Router = () => {
                         <Route path="/" element={<Layout />}>
                             <Route index element={<Dashboard />} />
                             <Route path="/recipes/:type" element={<RecipesDashboard />} />
-                            <Route path="/recipe/:id" element={<p>Recipe</p>} />
+                            <Route path="/recipes/:type/:id" element={<p>Recipe</p>} />
                             <Route path="*" element={<p>Error 404: Page not found</p>} />
                         </Route>
                     </Routes>

@@ -3,11 +3,15 @@ export interface IRecipe {
     title: string;
     image: string;
     type: string;
-    // Add more properties as needed based on the Spoonacular API response
+    servings: number;
+    readyInMinutes: number;
+    summary: string;
+    analyzedInstructions: { name: string; steps: { number: number; step: string }[] }[];
+    extendedIngredients: { name: string; amount: number; unit: string }[];
   }
   
-  export interface IApiState {
+export interface IApiState {
     status: "idle" | "loading" | "succeeded" | "failed";
     recipes: IRecipe[];
     error: string | null;
-  }
+}
