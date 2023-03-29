@@ -31,6 +31,8 @@ _Then run 'npm install' in the base folder_
 npm install
 ```
 
+_Make sure you create a `.env` file using the `.env.example` provided and add at least one valid token for both environment variables (You can simply repeat the same token for both variables)_
+
 _After this, open another terminal to run the server with 'npm run dev'_
 
 ```
